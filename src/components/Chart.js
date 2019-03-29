@@ -38,6 +38,7 @@ class Chart extends Component {
                  dataKey="value"
                  innerRadius={50}
                  outerRadius={120}
+                 animationDuration={200}
                  labelLine={false}
                  label={renderCustomizedLabel}>
               {

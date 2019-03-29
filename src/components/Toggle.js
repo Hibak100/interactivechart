@@ -12,8 +12,10 @@ class Toggle extends Component {
 
   handleChange = event => {
     const value =  event.target.id;
-    this.setState({ value });
-    this.props.toggleClick(value);
+    if(value !== this.state.value) {
+      this.setState({value});
+      this.props.toggleClick(value);
+    }
   };
 
   render() {
