@@ -45,3 +45,7 @@
   line-height: 1.5;
   border-radius: 0.25rem;
 }
+
+.Active {
+  border-color: #ffffff;
+}
