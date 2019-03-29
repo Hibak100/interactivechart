@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css';
 import PropTypes from 'prop-types'
-import {Cell, Legend, Pie, PieChart, ResponsiveContainer} from 'recharts'
-import {RADIAN} from "recharts/es6/util/PolarUtils";
+import {Cell, Legend, Pie, PieChart} from 'recharts'
 
 class Chart extends Component {
   constructor(props) {
@@ -19,6 +18,7 @@ class Chart extends Component {
   };
 
   render() {
+    const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, value}) => {
       const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
       const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -32,11 +32,12 @@ class Chart extends Component {
     const data = this.props.data;
     return (
       <div className="Chart">
-        <ResponsiveContainer>
-          <PieChart>
+          <PieChart height={400} width={500}>
             <Legend onClick={({value}) => this.highlight(value)}/>
-            <Pie data={data} dataKey="value"
-                 innerRadius={50} outerRadius={120}
+            <Pie data={data}
+                 dataKey="value"
+                 innerRadius={50}
+                 outerRadius={120}
                  labelLine={false}
                  label={renderCustomizedLabel}>
               {
@@ -50,7 +51,6 @@ class Chart extends Component {
               }
             </Pie>
           </PieChart>
-        </ResponsiveContainer>
       </div>
     );
   }

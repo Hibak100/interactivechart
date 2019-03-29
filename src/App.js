@@ -8,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <h1>Interactive Chart</h1>
           <Container data={data}/>
         </header>
       </div>

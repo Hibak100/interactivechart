@@ -27,7 +27,7 @@ export function transform (data) {
   ];
 }
 
-function getValue (table, name) {
+export function getValue (table, name) {
   const findName = table.find((item) => item.name === name);
   if(findName) {
     return findName.value;
